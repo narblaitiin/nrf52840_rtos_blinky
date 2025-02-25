@@ -16,6 +16,6 @@ The following commands clean build folder, build and flash the sample:
 
 **Command to use**
 
-west build -p always -b nrf52_lora_uwb_dev applications/nrf52840_rtos_blinky
+west build -p always -b mdbt50q_lora_dev applications/nrf52840_rtos_blinky
 
 west flash --runner pyocd

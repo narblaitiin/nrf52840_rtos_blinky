@@ -12,14 +12,11 @@
 /* 1000 msec = 1 sec */
 #define SLEEP_TIME_MS   1000
 
-/* The devicetree node identifier for the "led0" alias. */
+/* The devicetree node identifier for the aliases leds */
 #define LED_TX DT_ALIAS(led0)
 #define LED_RX DT_ALIAS(led1)
 
-/*
- * A build error on this line means your board is unsupported.
- * See the sample documentation for information on how to fix this.
- */
+/* a build error on this line means your board is unsupported */
 static const struct gpio_dt_spec led_tx = GPIO_DT_SPEC_GET(LED_TX, gpios);
 static const struct gpio_dt_spec led_rx = GPIO_DT_SPEC_GET(LED_RX, gpios);
 
