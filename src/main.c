@@ -14,7 +14,7 @@
 /* 1000 msec = 1 sec */
 #define SLEEP_TIME_MS   1000
 
-/* The devicetree node identifier for the aliases leds */
+/* the devicetree node identifier for the aliases leds */
 #define LED_TX DT_ALIAS(led0)
 #define LED_RX DT_ALIAS(led1)
 
