@@ -30,7 +30,7 @@ int8_t main(void)
 
 	// configurations of LEDs
 	gpio_pin_configure_dt(&led_tx, GPIO_OUTPUT_ACTIVE);
-	pio_pin_configure_dt(&led_rx, GPIO_OUTPUT_ACTIVE);
+	gpio_pin_configure_dt(&led_rx, GPIO_OUTPUT_ACTIVE);
 
 	printk("Hello World! %s\n", CONFIG_BOARD);
 
