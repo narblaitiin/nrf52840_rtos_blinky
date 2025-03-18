@@ -9,6 +9,8 @@
 #include <zephyr/device.h>
 #include <zephyr/drivers/gpio.h>
 
+
+//  ========== defines =====================================================================
 /* 1000 msec = 1 sec */
 #define SLEEP_TIME_MS   1000
 
@@ -16,35 +18,23 @@
 #define LED_TX DT_ALIAS(led0)
 #define LED_RX DT_ALIAS(led1)
 
+//  ========== globals =====================================================================
 /* a build error on this line means your board is unsupported */
 static const struct gpio_dt_spec led_tx = GPIO_DT_SPEC_GET(LED_TX, gpios);
 static const struct gpio_dt_spec led_rx = GPIO_DT_SPEC_GET(LED_RX, gpios);
 
+//  ========== main ========================================================================
 int8_t main(void)
 {
 	int8_t ret;
 
-	if (!gpio_is_ready_dt(&led_tx)) {
-		return 0;
-	}
-
-	if (!gpio_is_ready_dt(&led_rx)) {
-		return 0;
-	}
-
-	ret = gpio_pin_configure_dt(&led_tx, GPIO_OUTPUT_ACTIVE);
-	if (ret < 0) {
-		return 0;
-	}
-
-	ret = gpio_pin_configure_dt(&led_rx, GPIO_OUTPUT_ACTIVE);
-	if (ret < 0) {
-		return 0;
-	}
+	// configurations of LEDs
+	gpio_pin_configure_dt(&led_tx, GPIO_OUTPUT_ACTIVE);
+	pio_pin_configure_dt(&led_rx, GPIO_OUTPUT_ACTIVE);
 
 	printk("Hello World! %s\n", CONFIG_BOARD);
-	return 0;
 
+	// beginning forever loop
 	while (1) {
 		ret = gpio_pin_toggle_dt(&led_tx);
 		if (ret < 0) {
