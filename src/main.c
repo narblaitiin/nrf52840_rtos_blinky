@@ -27,7 +27,7 @@ static const struct gpio_dt_spec led_rx = GPIO_DT_SPEC_GET(LED_RX, gpios);
 //  ========== main ========================================================================
 int8_t main(void)
 {
-	int8_t ret;
+	int8_t ret = 0;
 
 	// configurations of LEDs
 	gpio_pin_configure_dt(&led_tx, GPIO_OUTPUT_ACTIVE);
