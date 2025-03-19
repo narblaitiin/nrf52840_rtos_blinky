@@ -7,7 +7,7 @@
 
 #include <zephyr/kernel.h>
 #include <zephyr/device.h>
-//#include <zephyr/devicetree.h>
+#include <zephyr/devicetree.h>
 #include <zephyr/drivers/gpio.h>
 
 
@@ -16,8 +16,8 @@
 #define SLEEP_TIME_MS   1000
 
 /* the devicetree node identifier for the aliases leds */
-#define LED_TX DT_ALIAS(led0)
-#define LED_RX DT_ALIAS(led1)
+#define LED_TX DT_ALIAS(ledtx)
+#define LED_RX DT_ALIAS(ledrx)
 
 //  ========== globals =====================================================================
 /* a build error on this line means your board is unsupported */
