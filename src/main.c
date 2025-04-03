@@ -1,15 +1,15 @@
 /*
- * Copyright (c) 2024
+ * Copyright (c) 2025
  * Regis Rousseau
  * Univ Lyon, INSA Lyon, Inria, CITI, EA3720
  * SPDX-License-Identifier: Apache-2.0
  */
 
+ //  ========== include ====================================================================
 #include <zephyr/kernel.h>
 #include <zephyr/device.h>
 #include <zephyr/devicetree.h>
 #include <zephyr/drivers/gpio.h>
-
 
 //  ========== defines =====================================================================
 /* 1000 msec = 1 sec */

@@ -9,7 +9,7 @@ The version of Zephyr RTOS used is the version v3.6.0.
 
 For Zephyr documentation, please click on this link: https://docs.zephyrproject.org/3.6.0/
 
-**Board used** : Original MDBT50Q board, powered by battery/solar panel. (see 6sens_project_nrf52 repository/hardware part, for more information.)
+**Board used** : Original MDBT50Q board, powered by battery/solar panel. (see 6sens_prj_nrf52 repository/hardware part, for more information.)
 
 ## Building and Running
 The following commands clean build folder, build and flash the sample:
