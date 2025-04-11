@@ -20,4 +20,4 @@ west build -t pristine
 
 west build -p always -b mdbt50q_lora_dev applications/nrf52840_rtos_blinky
 
-west flash --runner pyocd
+west flash --runner jlink
