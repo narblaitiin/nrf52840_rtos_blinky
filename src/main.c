@@ -12,15 +12,15 @@
 #include <zephyr/drivers/gpio.h>
 
 //  ========== defines =====================================================================
-/* 2000 msec = 2 sec */
+// time in milliseconds to wait between LED toggles (2000 ms = 2 seconds)
 #define SLEEP_TIME_MS   2000
 
-/* the devicetree node identifier for the aliases leds */
+// deviceTree node identifiers for the LEDs (transmit and receive indicators)
 #define LED_TX DT_ALIAS(ledtx)
 #define LED_RX DT_ALIAS(ledrx)
 
 //  ========== globals =====================================================================
-/* a build error on this line means your board is unsupported */
+// define GPIO configurations for the LEDs
 static const struct gpio_dt_spec led_tx = GPIO_DT_SPEC_GET(LED_TX, gpios);
 static const struct gpio_dt_spec led_rx = GPIO_DT_SPEC_GET(LED_RX, gpios);
 
@@ -29,25 +29,32 @@ int8_t main(void)
 {
 	int8_t ret = 0;
 
-	// configurations of LEDs
+	// configure the LEDs as active output pins
 	gpio_pin_configure_dt(&led_tx, GPIO_OUTPUT_ACTIVE);
 	gpio_pin_configure_dt(&led_rx, GPIO_OUTPUT_ACTIVE);
 
-	// LEDs off
+	// turn off both LEDs initially
 	gpio_pin_set_dt(&led_tx, 0);
 	gpio_pin_set_dt(&led_rx, 0);
 
-	// beginning forever loop
+	// infinite loop to toggle LEDs and print status
 	while (1) {
+		// print "Hello World" message with the board configuration name
 		printk("Hello World! %s\n", CONFIG_BOARD);
+
+		// toggle the transmit LED and check for errors
 		ret = gpio_pin_toggle_dt(&led_tx);
 		if (ret < 0) {
 			return 0;
 		}
+
+		// toggle the transmit LED and check for errors
 		ret = gpio_pin_toggle_dt(&led_rx);
 		if (ret < 0) {
 			return 0;
 		}
+
+		// wait for the defined sleep time before toggling again
 		k_msleep(SLEEP_TIME_MS);
 	}
 	return 0;
