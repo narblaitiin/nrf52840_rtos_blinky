@@ -8,12 +8,11 @@
 //  ========== includes ====================================================================
 #include <zephyr/kernel.h>
 #include <zephyr/device.h>
-//#include <zephyr/sys/printk.h>
 #include <zephyr/devicetree.h>
 #include <zephyr/drivers/gpio.h>
 
 //  ========== defines =====================================================================
-/* 1000 msec = 1 sec */
+/* 2000 msec = 2 sec */
 #define SLEEP_TIME_MS   2000
 
 /* the devicetree node identifier for the aliases leds */
@@ -33,6 +32,10 @@ int8_t main(void)
 	// configurations of LEDs
 	gpio_pin_configure_dt(&led_tx, GPIO_OUTPUT_ACTIVE);
 	gpio_pin_configure_dt(&led_rx, GPIO_OUTPUT_ACTIVE);
+
+	// LEDs off
+	gpio_pin_set_dt(&led_tx, 0);
+	gpio_pin_set_dt(&led_rx, 0);
 
 	// beginning forever loop
 	while (1) {
