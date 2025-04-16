@@ -48,7 +48,7 @@ int8_t main(void)
 			return 0;
 		}
 
-		// toggle the transmit LED and check for errors
+		// toggle the receive LED and check for errors
 		ret = gpio_pin_toggle_dt(&led_rx);
 		if (ret < 0) {
 			return 0;
