@@ -7,6 +7,8 @@ The Blinky example shows how to configure GPIO pins as outputs which can also be
 This application also prints "Hello World" to the console and allows us that the device tree board file is correct (especially UART communication).
 The version of Zephyr RTOS used is the version v3.6.0.
 
+With the jlink runner, you can use either the usual console or the one developed by Segger (JLinkRTTViewer).
+
 For Zephyr documentation, please click on this link: https://docs.zephyrproject.org/3.6.0/
 
 **Board used** : Original MDBT50Q board, powered by battery/solar panel. (see 6sens_prj_nrf52 repository/hardware part, for more information.)
