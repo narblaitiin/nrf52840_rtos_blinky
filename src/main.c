@@ -27,8 +27,6 @@ static const struct gpio_dt_spec led_rx = GPIO_DT_SPEC_GET(LED_RX, gpios);
 //  ========== main ========================================================================
 int8_t main(void)
 {
-	int8_t ret = 0;
-
 	// configure the LEDs as active output pins
 	gpio_pin_configure_dt(&led_tx, GPIO_OUTPUT_ACTIVE);
 	gpio_pin_configure_dt(&led_rx, GPIO_OUTPUT_ACTIVE);
@@ -43,7 +41,7 @@ int8_t main(void)
 		printk("Hello World! %s\n", CONFIG_BOARD);
 
 		// toggle the transmit LED and check for errors
-		ret = gpio_pin_toggle_dt(&led_tx);
+		int8_t ret = gpio_pin_toggle_dt(&led_tx);
 		if (ret < 0) {
 			return 0;
 		}
